@@ -1,0 +1,9 @@
+azure-search-documents==11.4.0b8
+openai
+python-dotenv
+langchain
+bs4
+lxml
+tiktoken
+streamlit
+azure.identity
