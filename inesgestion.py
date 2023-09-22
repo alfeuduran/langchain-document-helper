@@ -11,10 +11,9 @@ from langchain.vectorstores.azuresearch import AzureSearch
 
 logger = logging.getLogger(__name__)
 
-model: str = "text-embedding-ada-002"
-vector_store_address: str = "https://gptkb-rahzjehw7exti.search.windows.net"
-vector_store_password: str = "KB7fjV9u8X4WWuF94enaPwmaCFCDgqgZeKZoEsz0WKAzSeCEt1Nl"
-index_name: str = "langchain-index-helper-somedocs"
+vector_store_address: str = os.getenv("AZURE_SEARCH_SERVICE_ENDPOINT")
+vector_store_password: str = os.getenv("AZURE_SEARCH_ADMIN_KEY")
+index_name : str = os.getenv("INDEX_NAME")
 
 
 # !pip install nest-asyncio
