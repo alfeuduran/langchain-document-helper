@@ -7,3 +7,4 @@ lxml
 tiktoken
 streamlit
 azure.identity
+streamlit-chat
