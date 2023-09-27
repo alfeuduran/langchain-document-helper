@@ -28,7 +28,10 @@ def run_llm(query: str, chat_history: List[Dict[str, Any]]) -> any:
         azure_search_key=vector_store_password,
         index_name=index_name,
         embedding_function=embeddings.embed_query,
+        search_type="similarity"
     )
+
+    
 
     chat = AzureChatOpenAI(
         verbose=True,
@@ -39,9 +42,12 @@ def run_llm(query: str, chat_history: List[Dict[str, Any]]) -> any:
     )
     # qa = RetrievalQA.from_chain_type(llm=chat,chain_type="stuff",retriever=vector_store.as_retriever(), return_source_documents=True)
 
+    
     qa = ConversationalRetrievalChain.from_llm(
         llm=chat, retriever=vector_store.as_retriever(),return_source_documents=True 
     )
+
+    
     return qa({"question": query, "chat_history": chat_history})
 
 
