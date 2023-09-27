@@ -40,8 +40,6 @@ def run_llm(query: str, chat_history: List[Dict[str, Any]]) -> any:
         openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
         deployment_name="chat",
     )
-    # qa = RetrievalQA.from_chain_type(llm=chat,chain_type="stuff",retriever=vector_store.as_retriever(), return_source_documents=True)
-
     
     qa = ConversationalRetrievalChain.from_llm(
         llm=chat, retriever=vector_store.as_retriever(),return_source_documents=True 
